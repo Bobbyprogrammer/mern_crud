@@ -1,5 +1,4 @@
 import express from 'express';
-import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
 
@@ -19,7 +18,7 @@ app.use(
 
 app.use(express.json());
 
-app.get('/', (req, res, next) => {
+app.get('/', (req, res) => {
   res.send('API Running...');
 });
 
