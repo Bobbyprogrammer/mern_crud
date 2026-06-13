@@ -14,7 +14,7 @@ function App() {
       const { data } = await api.get('/users');
       setUsers(data.data);
     } catch (error) {
-      toast.error('Failed to fetch users');
+      toast.error('Failed to fetch users',error);
     }
   };
 
@@ -30,7 +30,7 @@ function App() {
 
       fetchUsers();
     } catch (error) {
-      toast.error('Creation Failed');
+      toast.error('Creation Failed',error);
     }
   };
 
@@ -44,7 +44,7 @@ function App() {
 
       fetchUsers();
     } catch (error) {
-      toast.error('Update Failed');
+      toast.error('Update Failed',  error );
     }
   };
 
@@ -56,7 +56,7 @@ function App() {
 
       fetchUsers();
     } catch (error) {
-      toast.error('Delete Failed');
+      toast.error('Delete Failed',error);
     }
   };
 
