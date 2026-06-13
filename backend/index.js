@@ -1,10 +1,10 @@
-import express from "express";
-import mongoose from "mongoose";
-import dotenv from "dotenv";
-import cors from "cors";
+import express from 'express';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+import cors from 'cors';
 
-import userRoutes from "./routes/userRoutes.js";
-import { connectDB } from "./config/db.js";
+import userRoutes from './routes/userRoutes.js';
+import { connectDB } from './config/db.js';
 
 dotenv.config();
 
@@ -19,11 +19,11 @@ app.use(
 
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("API Running...");
+app.get('/', (req, res, next) => {
+  res.send('API Running...');
 });
 
-app.use("/api/users", userRoutes);
+app.use('/api/users', userRoutes);
 
 app.listen(process.env.PORT, () => {
   console.log(`Server running on port ${process.env.PORT}`);

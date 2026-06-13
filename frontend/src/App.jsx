@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
-import { Toaster, toast } from "react-hot-toast";
-import { Pencil, Trash2 } from "lucide-react";
+import { useEffect, useState } from 'react';
+import { Toaster, toast } from 'react-hot-toast';
+import { Pencil, Trash2 } from 'lucide-react';
 
-import UserForm from "./components/UserForm";
-import api from "./services/api";
+import UserForm from './components/UserForm';
+import api from './services/api';
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -11,10 +11,10 @@ function App() {
 
   const fetchUsers = async () => {
     try {
-      const { data } = await api.get("/users");
+      const { data } = await api.get('/users');
       setUsers(data.data);
     } catch (error) {
-      toast.error("Failed to fetch users");
+      toast.error('Failed to fetch users');
     }
   };
 
@@ -24,13 +24,13 @@ function App() {
 
   const createUser = async (userData) => {
     try {
-      await api.post("/users", userData);
+      await api.post('/users', userData);
 
-      toast.success("User Created");
+      toast.success('User Created');
 
       fetchUsers();
     } catch (error) {
-      toast.error("Creation Failed");
+      toast.error('Creation Failed');
     }
   };
 
@@ -38,13 +38,13 @@ function App() {
     try {
       await api.put(`/users/${editingUser._id}`, userData);
 
-      toast.success("User Updated");
+      toast.success('User Updated');
 
       setEditingUser(null);
 
       fetchUsers();
     } catch (error) {
-      toast.error("Update Failed");
+      toast.error('Update Failed');
     }
   };
 
@@ -52,11 +52,11 @@ function App() {
     try {
       await api.delete(`/users/${id}`);
 
-      toast.success("User Deleted");
+      toast.success('User Deleted');
 
       fetchUsers();
     } catch (error) {
-      toast.error("Delete Failed");
+      toast.error('Delete Failed');
     }
   };
 
@@ -93,26 +93,18 @@ function App() {
                 </div>
 
                 <div className="flex gap-3">
-                  <button
-                    onClick={() => setEditingUser(user)}
-                    className="text-blue-600"
-                  >
+                  <button onClick={() => setEditingUser(user)} className="text-blue-600">
                     <Pencil size={20} />
                   </button>
 
-                  <button
-                    onClick={() => deleteUser(user._id)}
-                    className="text-red-600"
-                  >
+                  <button onClick={() => deleteUser(user._id)} className="text-red-600">
                     <Trash2 size={20} />
                   </button>
                 </div>
               </div>
             ))}
 
-            {users.length === 0 && (
-              <div className="text-center text-gray-500">No Users Found</div>
-            )}
+            {users.length === 0 && <div className="text-center text-gray-500">No Users Found</div>}
           </div>
         </div>
       </div>

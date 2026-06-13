@@ -1,4 +1,4 @@
-import User from "../models/User.js";
+import User from '../models/User.js';
 
 // Create User
 export const createUser = async (req, res) => {
@@ -7,7 +7,7 @@ export const createUser = async (req, res) => {
 
     res.status(201).json({
       success: true,
-      message: "User created successfully",
+      message: 'User created successfully',
       data: user,
     });
   } catch (error) {
@@ -44,7 +44,7 @@ export const getUserById = async (req, res) => {
     if (!user) {
       return res.status(404).json({
         success: false,
-        message: "User not found",
+        message: 'User not found',
       });
     }
 
@@ -71,13 +71,13 @@ export const updateUser = async (req, res) => {
     if (!user) {
       return res.status(404).json({
         success: false,
-        message: "User not found",
+        message: 'User not found',
       });
     }
 
     res.status(200).json({
       success: true,
-      message: "User updated successfully",
+      message: 'User updated successfully',
       data: user,
     });
   } catch (error) {
@@ -96,13 +96,13 @@ export const deleteUser = async (req, res) => {
     if (!user) {
       return res.status(404).json({
         success: false,
-        message: "User not found",
+        message: 'User not found',
       });
     }
 
     res.status(200).json({
       success: true,
-      message: "User deleted successfully",
+      message: 'User deleted successfully',
     });
   } catch (error) {
     res.status(500).json({
