@@ -8,7 +8,7 @@ import api from './services/api';
 function App() {
   const [users, setUsers] = useState([]);
   const [editingUser, setEditingUser] = useState(null);
-  const name = 'Babar khan';
+  // const name = 'Babar khan';
   const fetchUsers = async () => {
     try {
       const { data } = await api.get('/users');
