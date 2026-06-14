@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 const UserForm = ({ onSubmit, editingUser }) => {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    age: "",
+    name: '',
+    email: '',
+    age: '',
   });
 
   useEffect(() => {
@@ -26,21 +26,16 @@ const UserForm = ({ onSubmit, editingUser }) => {
 
     if (!editingUser) {
       setFormData({
-        name: "",
-        email: "",
-        age: "",
+        name: '',
+        email: '',
+        age: '',
       });
     }
   };
 
   return (
-    <form
-      onSubmit={submitHandler}
-      className="bg-white p-6 rounded-xl shadow-md"
-    >
-      <h2 className="text-xl font-bold mb-4">
-        {editingUser ? "Update User" : "Create User"}
-      </h2>
+    <form onSubmit={submitHandler} className="bg-white p-6 rounded-xl shadow-md">
+      <h2 className="text-xl font-bold mb-4">{editingUser ? 'Update User' : 'Create New User'}</h2>
 
       <input
         type="text"
@@ -73,7 +68,7 @@ const UserForm = ({ onSubmit, editingUser }) => {
       />
 
       <button className="bg-blue-600 text-white px-5 py-2 rounded">
-        {editingUser ? "Update" : "Create"}
+        {editingUser ? 'Update' : 'Create'}
       </button>
     </form>
   );
