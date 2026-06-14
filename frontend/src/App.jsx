@@ -8,13 +8,13 @@ import api from './services/api';
 function App() {
   const [users, setUsers] = useState([]);
   const [editingUser, setEditingUser] = useState(null);
-
+  // const name = 'Babar khan';
   const fetchUsers = async () => {
     try {
       const { data } = await api.get('/users');
       setUsers(data.data);
     } catch (error) {
-      toast.error('Failed to fetch users',error);
+      toast.error('Failed to fetch users', error);
     }
   };
 
@@ -30,7 +30,7 @@ function App() {
 
       fetchUsers();
     } catch (error) {
-      toast.error('Creation Failed',error);
+      toast.error('Creation Failed', error);
     }
   };
 
@@ -44,7 +44,7 @@ function App() {
 
       fetchUsers();
     } catch (error) {
-      toast.error('Update Failed',  error );
+      toast.error('Update Failed', error);
     }
   };
 
@@ -56,7 +56,7 @@ function App() {
 
       fetchUsers();
     } catch (error) {
-      toast.error('Delete Failed',error);
+      toast.error('Delete Failed', error);
     }
   };
 
